@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "tailwindcss": "^3.4.10"
+  },
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/todo-list-input.css -o ./dist/todo-list-output.css",
+    "watch:css": "tailwindcss -i ./src/todo-list-input.css -o ./dist/todo-list-output.css --watch"
   }
 }
