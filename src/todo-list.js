@@ -2,13 +2,7 @@
 
 const todoLists = [
     {
-        name: 'workout'
-    },
-    {
-        name: 'breakfast'
-    }, 
-    {
-        name: 'meeting'
+        name: 'makan'
     }
 ];
 
@@ -18,7 +12,6 @@ document.querySelector('.js-submit-button')
         addingTodo();
         
     });
-
 
 
 // function to add each todo when submitted
@@ -51,7 +44,7 @@ function renderTodoList() {
         const html = `
             <div class="flex justify-between items-center p-4 bg-white dark:bg-gray-900 rounded-lg shadow-md">
                 <span class="text-white">${name}</span>
-                <button class="js-delete-button delete-button-todo focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete</button>
+                <button class="js-delete-button focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete</button>
             </div>
         `;
         // console.log(html)
@@ -59,4 +52,15 @@ function renderTodoList() {
     });
 
     document.querySelector('.js-todo-list').innerHTML = todoListHTML;
+
+    // delete todo 
+    document.querySelectorAll('.js-delete-button')
+    .forEach((deleteButton, index) => {
+        // deleteButton as DOM Element Object which is refert to button element 
+        deleteButton.addEventListener('click', () => {
+            todoLists.splice(index,1); // delete element by one only
+            renderTodoList();   
+        });
+    });
+
 }
